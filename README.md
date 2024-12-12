@@ -38,4 +38,4 @@ Ensure you have the following installed:
 ### Steps to Run the Project
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/azharasif/MLNN-Assignment.git
