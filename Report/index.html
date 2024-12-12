@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Sentiment Analysis</title>
+</head>
+<style>
+      .flowchart {
+            margin: 0 auto;
+            width: 80%;
+        }
+        rect {
+            fill: #f9f9f9;
+            stroke: #333;
+            stroke-width: 2;
+        }
+        .oval {
+            fill: #cce5ff;
+            stroke: #333;
+            stroke-width: 2;
+        }
+        .arrow {
+            fill: none;
+            stroke: #333;
+            stroke-width: 2;
+        }
+</style>
+<body style="font-family: Arial, sans-serif; line-height: 1.8; margin: 20px;">
+
+    <!-- Header Section -->
+    <header style="background-color: #f4f4f4; padding: 20px; text-align: center; border-bottom: 2px solid #ddd;">
+        <h1 style="margin: 0; color: #333;">Airline Sentiment Analysis</h1>
+        <p style="margin: 5px; color: #666;">Exploring airline reviews through machine learning and data visualization</p>
+    </header>
+
+    <!-- Introduction Section -->
+    <section style="margin-top: 20px;">
+        <h2 style="color: #444;">Introduction</h2>
+        <p>
+            In today’s digital age, people often share their opinions online about a wide range of topics, including services, products, and experiences, through platforms like social media. Twitter, in particular, has become a popular medium for expressing sentiments about various services, including airline companies. This large volume of user-generated content presents an opportunity to apply sentiment analysis to understand customer feelings towards airline services.
+
+Sentiment analysis (SA) involves using machine learning techniques to categorize opinions as positive, negative, or neutral based on the text. In this context, the research focuses on analyzing the sentiments expressed by customers on Twitter regarding their experiences with airline services in the United States. By processing this data, we can gain valuable insights into customer satisfaction and dissatisfaction, which can be used by airlines to improve their services.
+
+In this study, a novel deep learning approach using deep neural networks (DNN) is employed to classify the sentiments in tweets. The model is trained using a large dataset of tweets, and the accuracy of sentiment predictions is assessed using key metrics such as precision, recall, and F1-score. The results show that deep neural networks outperform traditional methods like logistic regression in terms of classification accuracy, making DNNs a more effective tool for sentiment analysis in this domain.
+
+This tutorial will walk you through the sentiment analysis process using machine learning techniques, specifically focusing on how DNNs can be applied to Twitter data from U.S. airline companies. The analysis aims to reveal common positive and negative themes in customer feedback, which can guide airlines in enhancing their services and addressing customer concerns.
+
+
+        </p>
+    </section>
+    <section style="margin-top: 20px;">
+        <h2 style="color: #444;">Data Description</h2>
+        <p>
+            In this study, sentiment analysis is performed on a Twitter US Airline Sentiment
+
+            . We utilized the "twitter-airline-sentiment" dataset,
+            which was retrieved from the Kaggle platform. The opinions of passengers are represented in the
+            dataset via the use of Twitter messages. In all, 14874 tweets
+            signify 6 airlines in the US, for a total of 14874 records.
+            record is subdivided into three categories: positive and
+            negative and neutral
+            
+        </p>
+    </section>
+    <section style="margin-top: 20px;">
+        <h2 style="color: #444;">PROPOSED FLOWCHART</h2>
+        <p>
+            As mentioned earlier, our goal is to do SA for Twitter data.
+By using various kinds of machine learning classifiers, we
+will build a neural network classifier. once it gets trained
+then we have followed different steps to sentiment analysis
+as mentioned below diagram:
+        </p>
+        <div class="flowchart">
+            <svg width="100%" height="600">
+                <!-- Start -->
+                <ellipse cx="100" cy="50" rx="80" ry="30" class="oval" />
+                <text x="100" y="55" text-anchor="middle" font-size="16" fill="black">Start</text>
+    
+                <!-- Data Loading -->
+                <rect x="40" y="120" width="120" height="40"/>
+                <text x="100" y="145" text-anchor="middle" font-size="14" fill="black">Load Dataset</text>
+    
+                <!-- Preprocessing -->
+                <rect x="40" y="200" width="120" height="40"/>
+                <text x="100" y="225" text-anchor="middle" font-size="14" fill="black">Preprocess Data</text>
+    
+                <!-- Vectorization -->
+                <rect x="40" y="280" width="120" height="40"/>
+                <text x="100" y="305" text-anchor="middle" font-size="14" fill="black">Text Vectorization</text>
+    
+                <!-- Model Training -->
+                <rect x="40" y="360" width="120" height="40"/>
+                <text x="100" y="385" text-anchor="middle" font-size="14" fill="black">Train Model</text>
+    
+                <!-- Model Evaluation -->
+                <rect x="40" y="440" width="120" height="40"/>
+                <text x="100" y="465" text-anchor="middle" font-size="14" fill="black">Evaluate Model</text>
+    
+                <!-- End -->
+                <ellipse cx="100" cy="530" rx="80" ry="30" class="oval" />
+                <text x="100" y="535" text-anchor="middle" font-size="16" fill="black">End</text>
+    
+                <!-- Arrows -->
+                <line x1="100" y1="80" x2="100" y2="120" class="arrow" />
+                <line x1="100" y1="160" x2="100" y2="200" class="arrow" />
+                <line x1="100" y1="240" x2="100" y2="280" class="arrow" />
+                <line x1="100" y1="320" x2="100" y2="360" class="arrow" />
+                <line x1="100" y1="400" x2="100" y2="440" class="arrow" />
+                <line x1="100" y1="480" x2="100" y2="530" class="arrow" />
+            </svg>
+        </div>
+    </section>
+
+
+    <!-- Sentiment Distribution -->
+    <section style="margin-top: 20px;">
+        <h2 style="color: #444;">1. Sentiment Distribution</h2>
+        <p>
+            The bar chart below illustrates the distribution of sentiments in the dataset. 
+            It shows how many reviews fall under each category: negative, neutral, and positive. This is essential to understand 
+            the overall sentiment trends and identify areas needing improvement.
+        </p>
+        <img src="sentiment_distribution_chart.png" alt="Bar chart showing sentiment distribution of airline reviews" 
+             style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+    </section>
+
+    <!-- Word Clouds -->
+    <section style="margin-top: 20px;">
+        <h2 style="color: #444;">8. Top 10 Words in Negative and Positive Tweets</h2>
+        <p>
+            Understanding the most frequently mentioned words in feedback helps pinpoint key areas of customer sentiment. 
+            By analyzing the top 10 words in negative and positive tweets, we can identify recurring themes and improve services accordingly. 
+            For example, frequently mentioned negative words may highlight common issues, while positive words may reveal aspects of service 
+            that customers value most.
+        </p>
+        
+        <!-- Negative Words Bar Chart -->
+        <div style="margin-top: 20px;">
+            <h3 style="color: #666;">Top 10 Words in Negative Feedback</h3>
+            <p>
+                The bar chart below displays the most frequent words in negative tweets. These words, such as "delay" and "cancelled," 
+                indicate the primary issues customers face. Addressing these problems can significantly enhance customer satisfaction.
+            </p>
+            <img src="top 10 negative counts .png" alt="Bar chart showing top 10 frequent words in negative tweets" 
+                 style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+        </div>
+        
+        <!-- Positive Words Bar Chart -->
+        <div style="margin-top: 20px;">
+            <h3 style="color: #666;">Top 10 Words in Positive Feedback</h3>
+            <p>
+                The bar chart below displays the most frequent words in positive tweets. These words, such as "great" and "helpful," 
+                highlight the strengths of the airline services that customers appreciate. Promoting these aspects can enhance the brand image 
+                and attract more customers.
+            </p>
+            <img src="top positive.png" alt="Bar chart showing top 10 frequent words in positive tweets" 
+                 style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+        </div>
+    </section>
+    
+
+    <!-- Data Preprocessing -->
+    <section style="margin-top: 20px;">
+        <h2 style="color: #444;">3. Data Preprocessing</h2>
+        <p>
+            Before training machine learning models, the text data is preprocessed to improve its quality and usability. 
+            Steps include converting text to lowercase, removing unnecessary words (stopwords), and converting words into numerical vectors using TF-IDF. 
+            This ensures the data is clean and ready for analysis.
+        </p>
+    </section>
+
+    <!-- SVM Confusion Matrix -->
+    <section style="margin-top: 20px;">
+        <h2 style="color: #444;">4. SVM Confusion Matrix</h2>
+        <p>
+            A confusion matrix evaluates the performance of the Support Vector Machine (SVM) model. 
+            It shows the number of correct and incorrect predictions for each sentiment category, helping to identify strengths and weaknesses in the model's predictions.
+        </p>
+        <img src="svm_confusion_matrix.png" alt="Confusion Matrix displaying SVM prediction performance" 
+             style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+    </section>
+
+    <!-- MLNN Training Metrics -->
+    <section style="margin-top: 20px;">
+        <h2 style="color: #444;">5. MLNN Training Metrics</h2>
+        <p>
+            The Multi-Layer Neural Network (MLNN) model was trained using the preprocessed data. 
+            Below are the training and validation accuracy and loss metrics, plotted over multiple epochs. 
+            These metrics indicate how well the model learned from the data and whether it overfit or underfit during training.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <!-- Accuracy Plot -->
+            <div style="flex: 1; min-width: 300px;">
+                <img src="training_and_Validation_Accuracy.png" alt="Training and validation accuracy over epochs" 
+                     style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+                <p style="font-size: 14px; color: #777;">The accuracy plot shows a consistent improvement in both training and validation accuracy over time.</p>
+            </div>
+            
+            <!-- Loss Plot -->
+            <div style="flex: 1; min-width: 300px;">
+                <img src="training and validation loss.png" alt="Training and validation loss over epochs" 
+                     style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+                <p style="font-size: 14px; color: #777;">The loss plot indicates how the error decreases with each epoch, showing model learning progress.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Comparison -->
+    <section style="margin-top: 20px;">
+        <h2 style="color: #444;">6. Model Comparison</h2>
+        <p>
+            The bar chart below compares the performance of the SVM and MLNN models based on their accuracy scores. 
+            The MLNN model slightly outperforms SVM, indicating its ability to capture complex patterns in the data.
+        </p>
+        <img src="Model_Accuracy.png" alt="Bar chart comparing the accuracy of SVM and MLNN models" 
+             style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+    </section>
+
+    <!-- Conclusion and Recommendations -->
+    <section style="margin-top: 20px;">
+        <h2 style="color: #444;">7. Conclusion and Recommendations</h2>
+        <p>
+            This research highlights an efficient approach for sentiment analysis of US airline tweets, focusing on performance comparison between MLNN and SVM models. Pre-processing and feature representation proved crucial in enhancing classification outcomes. The results show that the MLNN model achieved an accuracy of 76%, while the SVM model outperformed it with an accuracy of 79%. This demonstrates the effectiveness of SVM for this dataset and underscores the importance of model selection in sentiment analysis tasks.
+        </p>
+
+    </section>
+
+    <section id="references" style="padding: 20px; background-color: #f9f9f9; border-top: 1px solid #ddd;">
+        <h2 style="text-align: center; color: #333; margin-bottom: 20px;">References</h2>
+        <ol style="line-height: 1.8; font-size: 16px; color: #555;">
+            <li>
+                Wan, Y. and Gao, Q. (2016). <i>An Ensemble Sentiment Classification System of Twitter Data for Airline Services Analysis.</i> Proceedings of the 15th IEEE International Conference on Data Mining Workshop. 
+                <a href="https://doi.org/10.1109/ICDMW.2015.7" target="_blank" style="color: #007BFF;">DOI: 10.1109/ICDMW.2015.7</a>
+            </li>
+            <li>
+                Yimga, J. (2021). <i>The Airline On-Time Performance Impacts of the COVID-19 Pandemic.</i> Transportation Research Interdisciplinary Perspectives. 
+                <a href="https://doi.org/10.1016/j.trip.2021.100386" target="_blank" style="color: #007BFF;">DOI: 10.1016/j.trip.2021.100386</a>
+            </li>
+            <li>
+                Zhang, G. P. (2000). <i>Neural Networks for Classification: A Survey.</i> IEEE Transactions on Systems, Man, and Cybernetics Part C: Applications and Reviews. 
+                <a href="https://doi.org/10.1109/5326.897072" target="_blank" style="color: #007BFF;">DOI: 10.1109/5326.897072</a>
+            </li>
+            <li>
+                Zhang, L., Wang, S., and Liu, B. (2018). <i>Deep Learning for Sentiment Analysis: A Survey.</i> Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery. 
+                <a href="https://doi.org/10.1002/widm.1253" target="_blank" style="color: #007BFF;">DOI: 10.1002/widm.1253</a>
+            </li>
+            <li>
+                Kaggle Dataset: <i>Twitter Airline Sentiment Data.</i> 
+                <a href="https://www.kaggle.com/datasets/crowdflower/twitter-airline-sentiment/data" target="_blank" style="color: #007BFF;">Kaggle Link</a>
+            </li>
+        </ol>
+    </section>
+    
+
+
+</body>
+</html>
