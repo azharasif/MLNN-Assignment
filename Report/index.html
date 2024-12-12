@@ -33,6 +33,17 @@
         <h1 style="margin: 0; color: #333;">Airline Sentiment Analysis</h1>
         <p style="margin: 5px; color: #666;">Exploring airline reviews through machine learning and data visualization</p>
     </header>
+    <!-- Personal Information Section -->
+<section aria-labelledby="personal-information-section" style="margin-top: 40px; text-align: center; background-color: #f4f4f4; padding: 20px; border-top: 2px solid #ddd;">
+    <h2 id="personal-information-section" style="color: #444;">Student Information</h2>
+    <p style="font-size: 18px; color: #555;">
+        <strong>Name:</strong>Muhammad Azhar <br>
+        <strong>Student ID:</strong> 23017233<br>
+        <strong>Course:</strong> Machine Learning And Neural Networks <br>
+        <strong>Instructor:</strong> Dr Peter Scicluna
+    </p>
+</section>
+
 
     <!-- Introduction Section -->
     <section style="margin-top: 20px;">
@@ -122,7 +133,7 @@ as mentioned below diagram:
             It shows how many reviews fall under each category: negative, neutral, and positive. This is essential to understand 
             the overall sentiment trends and identify areas needing improvement.
         </p>
-        <img src="sentiment_distribution_chart.png" alt="Bar chart showing sentiment distribution of airline reviews" 
+        <img src="graphsImages/sentiment_distribution_chart.png" alt="Bar chart showing sentiment distribution of airline reviews" 
              style="max-width: 100%; height: auto; border: 1px solid #ccc;">
     </section>
 
@@ -143,7 +154,7 @@ as mentioned below diagram:
                 The bar chart below displays the most frequent words in negative tweets. These words, such as "delay" and "cancelled," 
                 indicate the primary issues customers face. Addressing these problems can significantly enhance customer satisfaction.
             </p>
-            <img src="top 10 negative counts .png" alt="Bar chart showing top 10 frequent words in negative tweets" 
+            <img src="graphsImages/top 10 negative counts .png" alt="Bar chart showing top 10 frequent words in negative tweets" 
                  style="max-width: 100%; height: auto; border: 1px solid #ccc;">
         </div>
         
@@ -155,7 +166,7 @@ as mentioned below diagram:
                 highlight the strengths of the airline services that customers appreciate. Promoting these aspects can enhance the brand image 
                 and attract more customers.
             </p>
-            <img src="top positive.png" alt="Bar chart showing top 10 frequent words in positive tweets" 
+            <img src="graphsImages/top positive.png" alt="Bar chart showing top 10 frequent words in positive tweets" 
                  style="max-width: 100%; height: auto; border: 1px solid #ccc;">
         </div>
     </section>
@@ -178,7 +189,7 @@ as mentioned below diagram:
             A confusion matrix evaluates the performance of the Support Vector Machine (SVM) model. 
             It shows the number of correct and incorrect predictions for each sentiment category, helping to identify strengths and weaknesses in the model's predictions.
         </p>
-        <img src="svm_confusion_matrix.png" alt="Confusion Matrix displaying SVM prediction performance" 
+        <img src="graphsImages/svm_confusion_matrix.png" alt="Confusion Matrix displaying SVM prediction performance" 
              style="max-width: 100%; height: auto; border: 1px solid #ccc;">
     </section>
 
@@ -194,14 +205,14 @@ as mentioned below diagram:
         <div style="display: flex; flex-wrap: wrap; gap: 20px;">
             <!-- Accuracy Plot -->
             <div style="flex: 1; min-width: 300px;">
-                <img src="training_and_Validation_Accuracy.png" alt="Training and validation accuracy over epochs" 
+                <img src="graphsImages/training_and_Validation_Accuracy.png" alt="Training and validation accuracy over epochs" 
                      style="max-width: 100%; height: auto; border: 1px solid #ccc;">
                 <p style="font-size: 14px; color: #777;">The accuracy plot shows a consistent improvement in both training and validation accuracy over time.</p>
             </div>
             
             <!-- Loss Plot -->
             <div style="flex: 1; min-width: 300px;">
-                <img src="training and validation loss.png" alt="Training and validation loss over epochs" 
+                <img src="graphsImages/training and validation loss.png" alt="Training and validation loss over epochs" 
                      style="max-width: 100%; height: auto; border: 1px solid #ccc;">
                 <p style="font-size: 14px; color: #777;">The loss plot indicates how the error decreases with each epoch, showing model learning progress.</p>
             </div>
@@ -215,7 +226,7 @@ as mentioned below diagram:
             The bar chart below compares the performance of the SVM and MLNN models based on their accuracy scores. 
             The MLNN model slightly outperforms SVM, indicating its ability to capture complex patterns in the data.
         </p>
-        <img src="Model_Accuracy.png" alt="Bar chart comparing the accuracy of SVM and MLNN models" 
+        <img src="graphsImages/Model_Accuracy.png" alt="Bar chart comparing the accuracy of SVM and MLNN models" 
              style="max-width: 100%; height: auto; border: 1px solid #ccc;">
     </section>
 
